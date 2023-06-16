@@ -7,13 +7,13 @@ And this tool is powered by Google tts api.
 
 You can simplied install this tool by using git clone in your CLI.
 
-```shell
+```bash
 git clone https://github.com/miles0428/conversation_to_speech.git
 ```
 
 You also need to install some package in the requirement.txt
 
-```shell
+```bash
 
 python -m pip install requirement.txt
 
