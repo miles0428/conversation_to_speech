@@ -1,2 +1,3 @@
 pydub 
 google-cloud-texttospeech
+opencc

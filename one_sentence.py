@@ -25,11 +25,12 @@ def text_to_speech(text : str, file_name : str, key :str = 'key.json' ) -> None:
 
     voice = tts.VoiceSelectionParams(
         language_code="cmn-TW",
-        name='cmn-TW-Standard-A'
+        name='cmn-TW-Standard-A',
     )
 
     audio_config = tts.AudioConfig(
-        audio_encoding=tts.AudioEncoding.MP3
+        audio_encoding=tts.AudioEncoding.MP3,
+        speaking_rate=1.25
     )
 
     response = client.synthesize_speech(
@@ -82,8 +83,10 @@ def generate_srt_style_text(
         a srt style text
     '''
     #convert ms to srt style time
-    start_time = f'{start_time//1000:02}:{start_time%1000:03}'
-    end_time = f'{end_time//1000:02}:{end_time%1000:03}'
+    #srt style time: hh:mm:ss,mmm
+    #hh: hour, mm: minute, ss: second, mmm: millisecond
+    start_time = f'{start_time//3600000:02}:{start_time%3600000//60000:02}:{start_time%60000//1000:02},{start_time%1000:03}'
+    end_time = f'{end_time//3600000:02}:{end_time%3600000//60000:02}:{end_time%60000//1000:02},{end_time%1000:03}'
     #generate srt style text
     result = f'{index}\n'
     result += f'{start_time} --> {end_time}\n'
@@ -96,9 +99,3 @@ if __name__ == "__main__":
     text_to_speech(text, file_name)
     print(f'the duration of {text} is {get_duration(file_name)} ms')
     os.remove(file_name)
-
-
-    
-
-
-
