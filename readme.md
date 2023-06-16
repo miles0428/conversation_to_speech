@@ -19,3 +19,7 @@ python -m pip install requirement.txt
 
 ```
 
+## Key
+
+You will also need a google key file to use this tool.
+you can see the [before you begin](https://cloud.google.com/text-to-speech/docs/create-audio-text-command-line) document at Google Cloud for detail.
