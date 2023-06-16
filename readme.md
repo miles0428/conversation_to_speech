@@ -21,6 +21,6 @@ python -m pip install requirement.txt
 
 ## Credential key
 
-You will also need a credential key file for Google TTS API.
-Make sure that your key file in your project directory.
+You will also need a credential key file for Google TTS API.  
+Make sure that your key file in your project directory.  
 you can see the [before you begin](https://cloud.google.com/text-to-speech/docs/create-audio-text-command-line) document at Google Cloud for detail.
