@@ -1,7 +1,7 @@
 # Conversation to Speech
 
 This is a tool to transfer conversation to speech in Madarain-TW.
-And this tool is powered by Google tts api.
+And this tool is powered by Google TTS API.
 
 ## Install
 
@@ -19,7 +19,8 @@ python -m pip install requirement.txt
 
 ```
 
-## Key
+## Credential key
 
-You will also need a google key file to use this tool.
+You will also need a credential key file for Google TTS API.
+Make sure that your key file in your project directory.
 you can see the [before you begin](https://cloud.google.com/text-to-speech/docs/create-audio-text-command-line) document at Google Cloud for detail.
