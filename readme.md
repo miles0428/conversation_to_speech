@@ -1,6 +1,6 @@
 # Conversation to Speech
 
-This is a tool to transfer conversation to speech in Madarain-TW.
+This is a tool to transfer conversation to speech in Mandarin-TW.
 And this tool is powered by Google TTS API.
 
 ## Install
