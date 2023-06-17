@@ -1,4 +1,4 @@
 pydub 
 google-cloud-texttospeech
 opencc
-mdpdf
+python-docx
