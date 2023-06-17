@@ -94,7 +94,7 @@ def generate_srt_style_text(
     return result
 
 if __name__ == "__main__":
-    text = "刹车不是最好的方案，他强行掉头搞不好就是没看到后面来车，继续掉会直接碾过来 … 逃脱才是最佳方案。"
+    text = "今天天氣真好，實在是太棒了"
     file_name = "test.mp3"
     text_to_speech(text, file_name)
     print(f'the duration of {text} is {get_duration(file_name)} ms')
