@@ -24,3 +24,11 @@ python -m pip install requirement.txt
 You will also need a credential key file for Google TTS API.  
 Make sure that your key file in your project directory.  
 you can see the [before you begin](https://cloud.google.com/text-to-speech/docs/create-audio-text-command-line) document at Google Cloud for detail.
+
+## test dataset
+
+we use [Diamante中文开放域闲聊数据集](https://www.luge.ai/#/luge/dataDetail?id=52) to test our code.
+
+## reference
+
+[Lu, Hua, et al. "Towards Boosting the Open-Domain Chatbot with Human Feedback." arXiv preprint arXiv:2208.14165 (2022).](https://arxiv.org/pdf/2208.14165.pdf)
