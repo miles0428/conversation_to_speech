@@ -1,5 +1,5 @@
-import one_sentence 
-import conversation
+from . import one_sentence 
+from . import conversation
 import os
 from pydub import AudioSegment
 
@@ -39,9 +39,11 @@ def merge_caption(output_file_name : str, captions : list, duration_times : list
             start_time += duration_times[i]
 
 
-def conversations_to_speech(conversations : list, output_file_name : str, duration_limit :int  = None ) -> list:
+def conversations_to_speech(conversations : list, output_file_name : str, duration_limit : int  = None) -> list:
     '''
-    convert a list of conversations to a mp3 file
+    convert a list of conversations to a mp3 file and a caption file in srt format\n
+    with the duration limit of the output file\n
+    will return the conversations have not been converted
 
     Args:
         conversations : a list containing the conversations to be converted
