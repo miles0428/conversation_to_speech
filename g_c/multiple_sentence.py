@@ -1,7 +1,10 @@
-from . import one_sentence 
-from . import conversation
+import sys
 import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
+from g_c import one_sentence 
+from g_c import conversation
 from pydub import AudioSegment
+import opencc
 
 def merge_mp3(output_file_name : str, file_names : list) -> None:
     '''
@@ -20,7 +23,9 @@ def merge_mp3(output_file_name : str, file_names : list) -> None:
     combined.export(output_file_name, format="mp3")
 
 
-def merge_caption(output_file_name : str, captions : list, duration_times : list) -> None:
+def merge_caption(output_file_name : str, 
+                  captions : list, 
+                  duration_times : list) -> None:
     '''
     merge multiple caption into one caption
 
@@ -39,7 +44,10 @@ def merge_caption(output_file_name : str, captions : list, duration_times : list
             start_time += duration_times[i]
 
 
-def conversations_to_speech(conversations : list, output_file_name : str, duration_limit : int  = None) -> list:
+def conversations_to_speech(conversations : list, 
+                            output_file_name : str, 
+                            duration_limit : int  = None, 
+                            opencc2tw : bool = True) -> list:
     '''
     convert a list of conversations to a mp3 file and a caption file in srt format\n
     with the duration limit of the output file\n
@@ -49,13 +57,20 @@ def conversations_to_speech(conversations : list, output_file_name : str, durati
         conversations : a list containing the conversations to be converted
         output_file_name : the name of the output file ending with .mp3
         duration_limit : the duration limit of the output file in seconds
+        opencc2tw : whether to convert the conversations to traditional chinese
 
     Return:
         conversations : a list containing the conversations have not been converted
     '''
+    if opencc2tw:
+        converter = opencc.OpenCC(config='s2twp.json')
     if duration_limit is None:
         #generate the audio files and captions
         file_names = [f'tmp_{i}.mp3' for i in range(len(conversations))]
+        if opencc2tw:
+            conversations = [converter.convert(i) for i in conversations]
+        else:
+            pass
         captions = [i for i in conversations]
         #generate the audio files
         for i in range(len(conversations)):
@@ -80,6 +95,8 @@ def conversations_to_speech(conversations : list, output_file_name : str, durati
         while total_duration < duration_limit*1000 and len(conversations) > 0:
             #generate the audio files and captions
             conversation = conversations[0]
+            if opencc2tw:
+                conversation = converter.convert(conversation)
             conversations = conversations[1:]
             captions.append(conversation)
             file_name = f'tmp_{len(file_names)}.mp3'
