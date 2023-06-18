@@ -12,5 +12,9 @@ conversations = c.get_all_utterances(conversations)
 for i in range(10):
     os.mkdir(f"test_{i}")
     conversations = ms.conversations_to_speech(conversations, f"test_{i}/output_{i}.mp3", 60)
+
     ctd.caption_to_docx(f"test_{i}/output_{i}.srt", f"test_{i}/output_{i}.docx")
     print(f"test_{i} done")
+    if len(conversations) == 0:
+        break
+
