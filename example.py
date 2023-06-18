@@ -11,10 +11,13 @@ conversations = c.get_all_conversation("test.txt")
 #get the utterances
 conversations = c.get_all_utterances(conversations)
 
-os.mkdir("test")
+os.makedirs("test",exist_ok=True)
 #generate 2 1 minute audio files
+#will generate audio files in test/test_0/output_0.mp3 and test/test_1/output_1.mp3
+#and captions in test/test_0/output_0.srt and test/test_1/output_1.srt
+#and docx files in test/test_0/output_0.docx and test/test_1/output_1.docx
 for i in range(2):
-    os.mkdir(f"test/test_{i}")
+    os.makedirs(f"test/test_{i}",exist_ok=True)
     conversations = ms.conversations_to_speech(conversations, f"test/test_{i}/output_{i}.mp3", 60)
 
     ctd.caption_to_docx(f"test/test_{i}/output_{i}.srt", f"test/test_{i}/output_{i}.docx")

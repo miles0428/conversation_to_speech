@@ -27,7 +27,11 @@ you can see the [before you begin](https://cloud.google.com/text-to-speech/docs/
 
 ## Test Dataset
 
-we use [Diamante中文开放域闲聊数据集](https://www.luge.ai/#/luge/dataDetail?id=52) to test our code.
+We use [Diamante中文开放域闲聊数据集](https://www.luge.ai/#/luge/dataDetail?id=52) to test our code.
+
+## Example
+
+You can see example code in example.py
 
 ## Reference
 

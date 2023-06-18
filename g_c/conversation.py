@@ -11,17 +11,16 @@ def get_all_conversation(file_name : str) -> list:
     Return:
         a list containing the conversation
     
-    '''
-    '''
-    each line of the text file should be in the following format:
-    {"id": "dialogue-00000",
-    "conversation": 
-        [
-            {"role": "speaker1", "utterance": "你的朋友会找你讨论感情问题吗，我现在一个头两个大", "response_candidates": ["不会，我都是直接把我的感情经历讲给他们听", "会，而且都是找我诉苦",...]},
-            {"role": "speaker2", "utterance": "会啊，然后我就把我的故事都和她讲一遍，她就又自己纠结去了", "response_candidates":[...]},
-            ...
-        ]
-    }
+    Note:
+        each line of the text file should be in the following format:
+        {"id": "dialogue-00000",
+        "conversation": 
+            [
+                {"role": "speaker1", "utterance": "你的朋友会找你讨论感情问题吗，我现在一个头两个大", "response_candidates": ["不会，我都是直接把我的感情经历讲给他们听", "会，而且都是找我诉苦",...]},
+                {"role": "speaker2", "utterance": "会啊，然后我就把我的故事都和她讲一遍，她就又自己纠结去了", "response_candidates":[...]},
+                ...
+            ]
+        }
     '''
     conversations = []
 
